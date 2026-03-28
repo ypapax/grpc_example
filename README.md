@@ -9,7 +9,7 @@
 - [client/main.go](client/main.go) — клиент
 - [Makefile](Makefile) — `make server`, `make client`, `make proto`
 
-## 1. Proto файл — контракт
+## 1. Proto файл — контракт ([proto/order.proto](proto/order.proto))
 
 ```protobuf
 // Protobuf придумал Google в 2001
@@ -102,14 +102,15 @@ protoc \
 ```
 На выходе:
 
-./generated/order/order.pb.go       — структуры
-./generated/order/order_grpc.pb.go  — интерфейс + клиент
+./generated/order/order.pb.go      — структуры
+./generated/order/order_grpc.pb.go — интерфейс + клиент
+(см. generated/order/)
 
 Руками не трогаем.
 Перегенерируем при изменении proto.
 ```
 
-Что внутри `generated/order/order.pb.go`:
+Что внутри [generated/order/order.pb.go](generated/order/order.pb.go):
 
 ```go
 // "order" взято из "generated/order"
@@ -154,7 +155,7 @@ resp, _ := client.GetOrder(
 )
 ```
 
-## 3. Сервер — имплементация
+## 3. Сервер — имплементация ([server/main.go](server/main.go))
 
 ```go
 type server struct {
@@ -203,7 +204,7 @@ func main() {
 }
 ```
 
-## 4. Клиент — вызов как функция
+## 4. Клиент — вызов как функция ([client/main.go](client/main.go))
 
 ```go
 func main() {
