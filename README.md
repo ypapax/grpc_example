@@ -1,5 +1,14 @@
 # gRPC: Proto файл и кодогенерация
 
+## Файлы проекта
+
+- [proto/order.proto](proto/order.proto) — контракт
+- [generated/order/order.pb.go](generated/order/order.pb.go) — сгенерированные структуры
+- [generated/order/order_grpc.pb.go](generated/order/order_grpc.pb.go) — сгенерированный интерфейс + клиент
+- [server/main.go](server/main.go) — сервер
+- [client/main.go](client/main.go) — клиент
+- [Makefile](Makefile) — `make server`, `make client`, `make proto`
+
 ## 1. Proto файл — контракт
 
 ```protobuf
