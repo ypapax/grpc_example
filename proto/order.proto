@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "github.com/ypapax/grpc_example/generated/order";
+
+message GetOrderRequest {
+    string order_id = 1;
+}
+
+message GetOrderResponse {
+    string id = 1;
+    string status = 2;
+    float total = 3;
+}
+
+service OrderService {
+    rpc GetOrder(GetOrderRequest) returns (GetOrderResponse);
+}
